@@ -10,6 +10,7 @@ export class MediaService {
   status: string;
   email: string;
   baseUrl = 'http://media.mw.metropolia.fi/wbma/';
+  mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
   constructor(private http: HttpClient, private route: Router) { }
 
@@ -32,6 +33,10 @@ export class MediaService {
       headers: new HttpHeaders().set('x-access-token', localStorage.getItem('token'))
     };
     return this.http.post(this.baseUrl + 'media', form, settings);
+  }
+
+   getAllMedia() {
+    return this.http.get(this.baseUrl + 'media');
   }
 
   hasValidToken() {

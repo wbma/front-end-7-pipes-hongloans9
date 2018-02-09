@@ -8,3 +8,17 @@
     <br>
     <button type="submit" (click)="startUpload()">upload</button>
 </form> 
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2" *ngFor="let media of medias">
+      <div class="card">
+        <img class="card-img-top" [src]="mediaService.mediaUrl + (media.filename | thumbnail: 'medium')" />
+        <div class="card-body">
+          <h5 class="card-title">{{media.title}}</h5>
+          <p class="card-text">{{media.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

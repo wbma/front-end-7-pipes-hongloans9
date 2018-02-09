@@ -12,9 +12,15 @@ export class FrontComponent implements OnInit {
   file: File;
   title: '';
   description: '';
+  public medias: any[] = [];
   constructor(private mediaService: MediaService) { }
 
   ngOnInit() {
+     this.mediaService.getAllMedia().subscribe((data: any) => {
+      console.log(data);
+      this.medias = data;
+
+    });
   }
   setFile(evt) {
     console.log(evt.target.files[0]);
